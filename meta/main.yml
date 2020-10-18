@@ -1,0 +1,7 @@
+---
+galaxy_info:
+  author: oktospeaker@gmail.com
+  description: "Install/Uninstall Zabbix-server docker container"
+  company: none
+
+dependencies: []
