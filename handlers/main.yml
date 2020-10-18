@@ -10,28 +10,28 @@
     name: "{{ service_name }}"
     state: restarted
     enabled: yes
-  notify: firewall-cmd add-port
+  notify: "{{ service_name }}: firewall-cmd add-port"
 
-- name: firewall-cmd add-port
+- name: "{{ service_name }}: firewall-cmd add-port"
   become: true
   shell: firewall-cmd --zone=public --permanent --add-port={{ zabbix_host_port }}/{{ port_type }}
-  notify: service firewalld reload
+  notify: "{{ service_name }}: service firewalld reload"
 
 - name: "{{ service_name }} restart uninstall"
   become: true
   shell: systemctl daemon-reload
-  notify: reset-failed
+  notify: "{{ service_name }}: reset-failed"
 
-- name: reset-failed
+- name: "{{ service_name }}: reset-failed"
   become: true
   shell: systemctl reset-failed
-  notify: firewall-cmd remove-port
+  notify: "{{ service_name }}: firewall-cmd remove-port"
 
-- name: firewall-cmd remove-port
+- name: "{{ service_name }}: firewall-cmd remove-port"
   become: true
   shell: firewall-cmd --zone=public --permanent --remove-port={{ zabbix_host_port }}/{{ port_type }}
-  notify: service firewalld reload
+  notify: "{{ service_name }}: service firewalld reload"
 
-- name: service firewalld reload
+- name: "{{ service_name }}: service firewalld reload"
   become: true
   shell: systemctl restart firewalld
