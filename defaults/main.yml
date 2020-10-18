@@ -1,0 +1,11 @@
+---
+service_name: zabbix-srv-docker
+uninstall_service: false
+DB_SERVER_HOST: mysql-docker
+ZBX_JAVAGATEWAY: zabbix-jgw-docker
+DB_CONTAINER: mysql
+ZBX_JAVAGATEWAY_CONTAINER: zabbix-java-gateway
+zabbix_host_port: 10051
+zabbix_container_port: 10051
+port_type: tcp
+docker_image: zabbix/zabbix-server-mysql
