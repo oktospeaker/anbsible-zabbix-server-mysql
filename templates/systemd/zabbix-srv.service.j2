@@ -18,10 +18,9 @@ ExecStart=/usr/bin/docker run \
         -e ZBX_JAVAGATEWAY="{{ ZBX_JAVAGATEWAY }}" \
         --link {{ DB_SERVER_HOST }}:{{ DB_CONTAINER }} \
         --link {{ ZBX_JAVAGATEWAY }}:{{ ZBX_JAVAGATEWAY_CONTAINER }} \
-        --p {{ zabbix_host_port }}:{{ zabbix_container_port }}/{{ port_type }} \
-        -d \
+        -p {{ zabbix_host_port }}:{{ zabbix_container_port }}/{{ port_type }} \
         {{ docker_image }}
 ExecStop=/usr/bin/docker stop -t 1 {{ service_name }}
 
 [Install]
-WantedBy=multi-user.target	
+WantedBy=multi-user.target
