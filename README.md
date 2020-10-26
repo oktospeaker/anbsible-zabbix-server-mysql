@@ -9,7 +9,8 @@ uninstall_service               |       false                       |
 DB_SERVER_HOST                  |       mysql-docker                |   MySQL-server host hostname
 ZBX_JAVAGATEWAY                 |       zabbix-jgw-docker           |   Zabbix java gateway host hostname
 DB_CONTAINER                    |       mysql                       |   MySQL-server docker container name 
-ZBX_JAVAGATEWAY_CONTAINER       |       zabbix-java-gateway         |   Zabbix java gateway docker container name 
+ZBX_JAVAGATEWAY_CONTAINER       |       zabbix-java-gateway         |   Zabbix java gateway docker container name
+ZBX_CACHESIZE                   |       32M                         |   Zabbix server cashe size
 zabbix_host_port                |       10051                       |   Host network port
 zabbix_container_port           |       10051                       |   Container network port
 port_type                       |       tcp                         |   Port type
